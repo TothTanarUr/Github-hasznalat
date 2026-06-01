@@ -1,0 +1,28 @@
+Gép összekapcsolása GitHub-val
+
+Konfigurálás:
+    git config --global user.name "A github felhasználó neved"
+    git config --global user.email "A githubos e-maild"
+
+Konfiguráció ki listázása:
+    git config --list
+
+SSH kulcs keszítés:
+    ssh-keygen -t ed25519 -C "Az e-mail címed"
+
+Az SSH elindítása, és kulcs hozzáadása:
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+
+Az SSH kulcs kimásolása:
+    cat ~/.ssh/id_ed25519.pub
+
+A lokális SSH kulcs megadása githubon:
+    1. Lépj be a github fiókodba
+    2. A jobb felső sarokba kattints a profilképedre
+        majd válaszd a Settings(Beállítások) menüpontra.
+    3. A bal oldali menüben kattints az SSH and GPG  keys opcióra
+    4. Kattints a zöld New SSH key gombra
+    5. Adj neki egy nevet pl. B30_Gép
+    6. A "key" mezőbe illeszd be a bashből kimásolt kulcsot
+    7. Kattints a Add SSH key gomb
